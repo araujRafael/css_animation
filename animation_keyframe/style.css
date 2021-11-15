@@ -1,0 +1,48 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.c-sky {
+  width: 100%;
+  height: 100vh;
+}
+.sky {
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+  object-position: 30%;
+}
+
+.ship {
+  position: absolute;
+  left: -350px;
+  transform: scale(0.05);
+  /* 
+    Ordem do input animation:
+    - name: nome da animação
+    - duration: o tempo que leva para ser executada no total
+    - timing-function: como ela progride ao longo da animação,
+     pode ser usado o cubic-bezier(params), linear, steps() 
+    - delay: tempo que leva para acontecer 
+    - interation-count: quantas vezes ela acontece antes de parar
+    - direction: direção da animação => reverse,alternate 
+    - fill-mode: estabelece em que posilção da linha do tempo da animação irar ficar
+    - play-state: define se a animação esta pausada ou executada
+
+  */
+  animation: flight 1.5s ease-in-out forwards 0.5s ;
+}
+
+@keyframes flight {
+  0%{
+    top: 20vh;
+    left: -350px;
+    transform: scale(0.5) translateX(calc(0 - 350px))
+  }
+  100% {
+    top: 20vh;
+    transform: scale(1) translateX(calc(100vw - 350px));
+  }
+}
